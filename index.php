@@ -50,7 +50,29 @@ class SinhVien {
 //khởi tạo object từ class sinhVien: $tenObject = new TenClass(tham-số);
 $thaivm2 = new SinhVien('thaivm2', 'PH12345', 'thaivm2@fe.edu.vn');
 //truy cập thuộc tính của object: $tenObject->tenThuocTinh
-echo "$thaivm2->name <br>";
+// echo "$thaivm2->name <br>";
 //thực thi hàm: $tenObject->tenHam()
-$thaivm2->hienThiThongTin();
+// $thaivm2->hienThiThongTin();
+
+/** Kế thừa 
+ * Cú pháp: class TenClassCon extends TenClassCha {}
+ * Tính chất: 
+ * - Class con sẽ đc sử dụng luôn những thuộc tính/phương thức
+ * đã được khai báo ở class cha (public/protected)
+ */
+class SinhVienIt extends SinhVien {
+    public $major = 'Lập trình web';
+
+    public function hienThiThongTin() {
+        parent::hienThiThongTin(); // sử dụng hàm hienThiThongTin của class cha
+        echo "$this->major"; //phần xử lý riêng của class con
+    }
+}
+
+//tạo Object từ class SinhVienIt
+$thaivm3 = new SinhVienIt('thaivm3', 'PH12345', 'thaivm3@fe.edu.vn');
+// echo "$thaivm3->name <br>"; 
+// echo "$thaivm3->code <br>"; 
+// echo "$thaivm3->email <br>";
+$thaivm3->hienThiThongTin();
 ?>
