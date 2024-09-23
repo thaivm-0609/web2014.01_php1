@@ -1,4 +1,8 @@
 <?php
+//nhúng file env và connect để kết nối CSDL
+require './commons/env.php';
+require './commons/connect.php';
+
 //import/nhúng file controller/models;
 require './controllers/CarController.php';
 require './models/Car.php';
@@ -17,7 +21,7 @@ switch ($act) {
         echo "Home";
         break;
     case 'list':
-        echo "Đây là trang danh sách";
+        (new CarController())->getList();
         break;
     default: 
         echo "Router không hợp lệ";
