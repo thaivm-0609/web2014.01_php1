@@ -23,6 +23,9 @@ switch ($act) {
     case 'list':
         (new CarController())->getList();
         break;
+    case 'detail':
+        (new CarController())->getDetail();
+        break;
     default: 
         echo "Router không hợp lệ";
         break;

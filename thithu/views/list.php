@@ -16,6 +16,7 @@
                 <th>Brand</th>
                 <th>Color</th>
                 <th>Seat</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
@@ -29,6 +30,9 @@
                     <td><?= $c['brand'] ?></td>
                     <td><?= $c['color'] ?></td>
                     <td><?= $c['seat'] ?></td>
+                    <td>
+                        <a href="?act=detail&id=<?=$c['id']?>">Chi tiết</a>
+                    </td>
                 </tr>
             <?php } ?>
         </tbody>

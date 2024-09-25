@@ -13,7 +13,15 @@ class Car {
         $stmt = $this->conn->prepare($sql);
         $stmt->execute(); //thực thi câu truy vấn
 
-        return $stmt->fetchAll();
+        return $stmt->fetchAll(); //fetchAll() để lấy danh sách
+    }
+
+    public function getById($id) {
+        $sql = "SELECT * FROM cars WHERE id = $id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+
+        return $stmt->fetch(); //fetch() để lấy 1 bản ghi
     }
 
     public function __destruct()
