@@ -24,6 +24,14 @@ class Car {
         return $stmt->fetch(); //fetch() để lấy 1 bản ghi
     }
 
+    public function save($name,$image,$brand,$seat,$color) 
+    {
+        $sql = "INSERT INTO cars (name,image,brand,seat,color)
+            VALUE('$name','$image','$brand','$seat','$color')";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+    }
+
     public function __destruct()
     {
         $this->conn = null;

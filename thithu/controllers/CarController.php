@@ -27,5 +27,34 @@ class CarController {
             require_once './views/detail.php';
         }  
     }
+
+    public function create() {
+        //kiểm tra ng dùng đã bấm submit hay chưa?
+        if (isset($_POST['them'])) {
+            //lấy dữ liệu
+            $name = $_POST['name'];
+            $image = $_POST['image'];
+            $brand = $_POST['brand'];
+            $seat = $_POST['seat'];
+            $color = $_POST['color'];
+        
+            //gọi sang model, lưu vào database
+            $this->carModel->save($name,$image,$brand,$seat,$color);
+            
+            //đưa về trang danh sách
+            header('location: index.php?act=list');
+        }
+        
+        require_once './views/create.php'; //form nhập liệu
+    }
+
+    public function edit() {
+        //hiển thị dữ liệu cũ ra form sửa
+        $id = isset($_GET['id']) 
+            ? $_GET['id'] 
+            : null;
+        $car = $this->carModel->getById($id);
+        require_once './views/edit.php';
+    }
 }
 ?>

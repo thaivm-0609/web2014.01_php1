@@ -32,6 +32,7 @@
                     <td><?= $c['seat'] ?></td>
                     <td>
                         <a href="?act=detail&id=<?=$c['id']?>">Chi tiết</a>
+                        <a href="?act=edit&id=<?=$c['id']?>">Sửa</a>
                     </td>
                 </tr>
             <?php } ?>
