@@ -54,7 +54,21 @@ class CarController {
             ? $_GET['id'] 
             : null;
         $car = $this->carModel->getById($id);
+        
+        if (isset($_POST['sua'])) { //kiểm tra ng dùng đã bấm vào nút sửa
+            //lấy dữ liệu ng dùng nhập vào form
+            $name = $_POST['name'];
+            $image = $_POST['image'];
+            $brand = $_POST['brand'];
+            $seat = $_POST['seat'];
+            $color = $_POST['color'];
+
+            //thực hiện truy vấn
+            $this->carModel->update($id,$name,$image,$brand,$seat,$color);
+            header('location: index.php?act=list');
+        }
         require_once './views/edit.php';
+        
     }
 }
 ?>

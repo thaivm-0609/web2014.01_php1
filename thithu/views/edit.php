@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>Sửa</h1>
-    <form action="index.php?act=edit" method="POST">
+    <form action="index.php?act=edit&id=<?=$car['id']?>" method="POST">
         <div>
             <label for="">Name</label>
             <input type="text" name="name" value="<?=$car['name']?>">

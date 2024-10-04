@@ -32,6 +32,15 @@ class Car {
         $stmt->execute();
     }
 
+    public function update($id,$name,$image,$brand,$seat,$color)
+    {
+        $sql = "UPDATE cars 
+            SET name='$name',image='$image',brand='$brand',seat='$seat',color='$color'
+            WHERE id=$id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+    }
+
     public function __destruct()
     {
         $this->conn = null;
