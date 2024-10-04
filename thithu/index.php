@@ -32,6 +32,9 @@ switch ($act) {
     case 'edit':
         (new CarController())->edit();
         break;
+    case 'delete':
+        (new CarController())->delete();
+        break;
     default: 
         echo "Router không hợp lệ";
         break;

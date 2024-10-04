@@ -68,7 +68,18 @@ class CarController {
             header('location: index.php?act=list');
         }
         require_once './views/edit.php';
-        
+    }
+
+    public function delete()
+    {
+        //lấy id bản ghi cần xóa
+        $id = isset($_GET['id']) 
+            ? $_GET['id'] 
+            : null;
+        if (isset($id) && $id > 0) { //nếu id hợp lệ 
+            $this->carModel->delete($id);
+            header('location: index.php?act=list');
+        }
     }
 }
 ?>

@@ -41,6 +41,13 @@ class Car {
         $stmt->execute();
     }
 
+    public function delete($id)
+    {
+        $sql = "DELETE FROM cars WHERE id=$id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+    }
+
     public function __destruct()
     {
         $this->conn = null;
