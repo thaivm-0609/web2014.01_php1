@@ -33,11 +33,21 @@ class CarController {
         if (isset($_POST['them'])) {
             //lấy dữ liệu
             $name = $_POST['name'];
-            $image = $_POST['image'];
             $brand = $_POST['brand'];
             $seat = $_POST['seat'];
             $color = $_POST['color'];
-        
+            
+            //upload file, lưu ảnh vào server
+            if (isset($_FILES['image'])) {
+                $fileImage = $_FILES['image'];
+                $image = $fileImage['name']; //lấy tên file đc upload lên
+                $from = $fileImage['tmp_name']; //lấy đường dẫn lưu ảnh tạm thời
+                $to = './uploads/'.$image; //đường dẫn lưu ảnh trên server
+                move_uploaded_file($from, $to); //upload file lên sv
+            } else {
+                $image = '';
+            }
+
             //gọi sang model, lưu vào database
             $this->carModel->save($name,$image,$brand,$seat,$color);
             

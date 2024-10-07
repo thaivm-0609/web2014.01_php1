@@ -25,7 +25,7 @@
                     <td><?= $c['id'] ?></td>
                     <td><?= $c['name'] ?></td>
                     <td>
-                        <img src="<?= $c['image'] ?>" alt="">
+                        <img style="width: 100px" src="./uploads/<?= $c['image'] ?>" alt="">
                     </td>
                     <td><?= $c['brand'] ?></td>
                     <td><?= $c['color'] ?></td>

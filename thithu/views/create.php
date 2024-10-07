@@ -7,14 +7,18 @@
 </head>
 <body>
     <h1>Thêm mới</h1>
-    <form action="index.php?act=create" method="POST">
+    <form 
+        action="index.php?act=create" 
+        method="POST"
+        enctype="multipart/form-data"
+    >
         <div>
             <label for="">Name</label>
             <input type="text" name="name">
         </div>
         <div>
             <label for="">Image</label>
-            <input type="text" name="image">
+            <input type="file" name="image">
         </div>
         <div>
             <label for="">Brand</label>
